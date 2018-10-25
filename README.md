@@ -1,4 +1,4 @@
-# map-reduce-inverted-index
+# MapReduce Inverted Index
 
 Small Java program for having a hangs on experience with [Hadoop MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
 
