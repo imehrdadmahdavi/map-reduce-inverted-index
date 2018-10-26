@@ -8,6 +8,12 @@ It is using a subset of 74 files from a total of 408 files (text extracted from 
 
 ### Setup Hadoop
 GNU/Linux is supported as a development and production platform. To get a Hadoop distribution, download a recent stable release from one of the [Apache Download Mirrors](http://www.apache.org/dyn/closer.cgi/hadoop/common/). Please note that this project has been tested on hadoop-3.1.1. 
+
+Unpack the downloaded Hadoop distribution. In the distribution, edit the file etc/hadoop/hadoop-env.sh to define some parameters as follows:
+
+`# set to the root of your Java installation`
+
+`$ export JAVA_HOME=/usr/java/latest`
  
 
 
