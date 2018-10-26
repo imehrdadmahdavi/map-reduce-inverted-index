@@ -25,7 +25,7 @@ This should display the usage documentation for the Hadoop script. Now you are r
 
 ### Setup and run a simple Hadoop job
 
-This simple Hadoop job, get the input of the two text as the below key/value pairs:
+This simple Hadoop job, get two below text files in the input folder as the input of the Mapper.
 
 file01:
 ```shell
@@ -35,7 +35,7 @@ file02:
 ```shell
 6722018415	Hello Hadoop Goodbye Hadoop
 ```
-And by submitting a Hadoop job and applying MapReduce, it generates an inverted index as below:
+And by submitting a Hadoop job and applying Reduce step, it generates an inverted index as below:
 ```shell
 bye	5722018411:1 
 goodbye	6722018415:1 
