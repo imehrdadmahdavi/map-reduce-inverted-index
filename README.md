@@ -43,9 +43,7 @@ hadoop	6722018415:2
 hello	5722018411:1 6722018415:1 
 world	5722018411:2
 ```
-
 To submit a Hadoop job, the MadReduce implementation should be packaged as a `jar` file. To do so, copy the `InvertedIndex.java` file of this project to the distribution's root folder and while you are still there run the following command to compile `InvertedIndex.java` and create a `jar` file.
-
 ```shell
 $ hadoop com.sun.tools.javac.Main InvertedIndex.java
 $ jar cf invertedindex.jar InvertedIndex*.class
@@ -60,44 +58,40 @@ $ bin/hadoop dfs -cat output/part-r-00000
 ```
 ## Fully-Distributed Mode
 
-In this section we create a cluster with 3 worker nodes on Google Dataproc and run `invertedindex.jar` job on the actual real data. 
+In this section we create a cluster with 3 worker nodes on Google Dataproc and run `invertedindex.jar` job on the full real data. 
 
 ### Google Cloud Platform Setup
 
 First we need an account on [Google Cloud Platform](https://cloud.google.com/). You can sign up for a trial with a $300 credit if you don't have one already.
 
 #### Setting up Your Initial Machine
-On the Dashboard, click on “Project” at the top of the window and either create a new project or select an existing one. For this exercise we will use Dataproc. Using Dataproc. We can quickly create a cluster of compute instances running Hadoop. The alternative to Dataproc would be to individually setup each compute node, install Hadoop on it, set up HDFS, set up master node, etc. Dataproc automates this grueling process for us.
+In the Google Cloud Console either create a new project or select an existing one. For this exercise we will use Dataproc. Using Dataproc, we can quickly create a cluster of compute instances running Hadoop. The alternative to Dataproc would be to individually setup each compute node, install Hadoop on it, set up HDFS, set up master node, etc. Dataproc automates this grueling process for us.
 
 #### Creating a Hadoop Cluster on Google Cloud Platform
 
-In Google Cloud Consol, select Dataproc from the navigation list on the left. If this is the first time you’re using Dataproc then you might need to enable Dataproc API first.
-
-Once you’ve enabled the API you’ll now see a dialog box with a Create Cluster button. Clicking on “Create Cluster” will take you to the cluster configuration section . Give any unique name to your cluster and select a desired zone. You need to create a master and 3 worker nodes. Select the default configuration processors (n1-standard-4 4vCPU 15 GB memory) for each member and reduce the storage to 32 GB HDD storage. Leave everything else default and click on “Create”.
+In Google Cloud Consol, select Dataproc from the navigation list on the left. If this is the first time you’re using Dataproc then you might need to enable Dataproc API first. Clicking on “Create Cluster” will take you to the cluster configuration section. Give any unique name to your cluster and select a desired zone. You need to create a master and 3 worker nodes. Select the default configuration processors (n1-standard-4 4vCPU 15 GB memory) for each member and reduce the storage to 32 GB HDD storage. Leave everything else default and click on “Create”.
 
 Now that the cluster is setup we’ll have to configure it a little before we can run jobs on it. Select the cluster you just created from the list of clusters under the cloud Dataproc section on your console. Go to the VM Instances tab and click on the SSH button next to the instance with the Master Role.
 
 Clicking on the SSH button will take you to a Command line Interface(CLI) like an xTerm or Terminal. All the commands in the following steps are to be entered in the
 CLI. There is no home directory on HDFS for the current user so set up the user directory on HDFS. So, we’ll have to set this up before proceeding further. (To find out your user name run `whoami`)
-```
+```shell
 $ hadoop fs -mkdir -p /user/<your username here>
 ```
-Set up environment variables for JAVA and HADOOP_CLASSPATH. Please note that this step has to be done each time you open a new SSH terminal.
-```
+Set up environment variables for `JAVA` and `HADOOP_CLASSPATH`. Please note that this step has to be done each time you open a new SSH terminal.
+```shell
 $ export PATH=${JAVA_HOME}/bin:${PATH}
 $ export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
 ```
 Run
-```
+```shell
 $ hadoop fs -ls
 ```
 If there is no error this implies that your cluster was successfully set up. If you do encounter an error it’s most likely due to a missing environment variable or user home directory not being set up right.
 
-**NOTE**: Please disable the billing for the cluster when you are not using it. Leaving it running will cost extra credits.
-
-
 To ensure that the environment variables are set, run the command `env`.
 
+**NOTE**: Please disable the billing for the cluster when you are not using it. Leaving it running will cost extra credits.
 #### Upload data to Google Cloud Storage
 
 Download the dataset from this [link](https://drive.google.com/drive/u/1/folders/1Z4KyalIuddPGVkIm6dUjkpD_FiXyNIcq) and unzip the contents. You will find two folders inside named ‘development’ and ‘full data’. ‘development’ data can be used for development and testing purposes.
@@ -110,12 +104,12 @@ Go to the storage section in the left navigation bar and select your cluster’s
 Now we are ready to submit a Hadoop job to run our MapReduce implementation on the actual data. Either use SSH or `nano`/`vi` command to copy or create `InvertedIndex.java` on the cluster.
 
 Run the following command to create the `jar` file:
-```
+```shell
 $ hadoop com.sun.tools.javac.Main InvertedIndex.java
 $ jar cf invertedindex.jar InvertedIndex*.class
 ```
 Now you have a jar file for your job. You need to place this jar file in the default cloud bucket of your cluster. Just create a folder called JAR on your bucket and upload it to that folder. If you created your jar file on the cluster’s master node itself use the following commands to copy it to the JAR folder. 
-```
+```shell
 $ hadoop fs -copyFromLocal ./invertedindex.jar
 $ hadoop fs -cp ./invertedindex.jar gs://dataproc-69070.../JAR
 ```
@@ -126,22 +120,29 @@ The `gs://dataproc-69070...` part is the default bucket of your cluster. It need
 Go to the “Jobs” section in the left navigation bar of the Dataproc page and click on “Submit job”. Fill the job parameters as follows:
 
 * **Cluster**: Select the cluster you created
-* **Job Type:**: Hadoop
-* **Jar File:**: Full path to the jar file you uploaded earlier to the Google storage bucket. Don’t forget the `gs://`
-* **Main Class or jar:**: The name of the java class you wrote the mapper and reducer in.
-* **Arguments:**: This takes two arguments.
+* **Job Type:** Hadoop
+* **Jar File:** Full path to the jar file you uploaded earlier to the Google storage bucket. Don’t forget the `gs://`
+* **Main Class or jar:** The name of the java class you wrote the mapper and reducer in.
+* **Arguments:** This takes two arguments.
     * **Input:** Path to the input data you uploaded
     * **Output:** Path to the storage bucket followed by a new folder name. The folder is created during execution. You will get an error if you give the name of an existing folder.
 * Leave the rest at their default settings
 
 Now submit the job.
 
-**NOTE**: If you encounter a `Java.lang.Interrupted` exception you can safely ignore it. Your submission will still execute.
+**NOTE**: If you encounter a `Java.lang.Interrupted Exception` you can safely ignore it. Your submission will still execute.
 
 The output files will be stored in the output folder on the bucket. If you open this folder you’ll notice that the inverted index is in several segments.(Delete the _SUCCESS file in the folder before mergin all the output files).
 ```shell
-$ hadoop fs -getmerge gs://dataproc-69070.../fulloutput ./output.txt;
-$ hadoop fs -copyFromLocal ./output.txt;
+$ hadoop fs -getmerge gs://dataproc-69070.../fulloutput ./output.txt
+$ hadoop fs -copyFromLocal ./output.txt
 $ hadoop fs -cp ./output.txt gs://dataproc-69070.../output.txt
 ```
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+#### Notes
+If you want to re-compile and submit a new job again you can remove the `.jar`, `.class` ,`.java` and hadoop files using the command below accordingly.
+```shell
+$ hadoop fs -rm ./wordcount.jar ./output.txt WordCount*.class
+$ hadoop fs -rm gs://dataproc-69070.../JAR/wordcount.jar; gs://dataproc-69070.../output.txt;
+$ hadoop fs -rm gs://dataproc-69070.../fulloutput/* 
+$ hadoop fs -rmdir gs://dataproc-69070.../fulloutput
+```
