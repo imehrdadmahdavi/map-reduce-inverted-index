@@ -71,7 +71,7 @@ In the Google Cloud Console either create a new project or select an existing on
 
 #### Creating a Hadoop Cluster on Google Cloud Platform
 
-In Google Cloud Consol, select Dataproc from the navigation list on the left. If this is the first time you’re using Dataproc then you might need to enable Dataproc API first. Clicking on “Create Cluster” will take you to the cluster configuration section. Give any unique name to your cluster and select a desired zone. You need to create a master and 3 worker nodes. Select the default configuration processors (n1-standard-4 4vCPU 15 GB memory) for each member and reduce the storage to 32 GB HDD storage. Leave everything else default and click on “Create”.
+In Google Cloud Consol, select Dataproc from the navigation list on the left. If this is the first time you’re using Dataproc then you might need to enable Dataproc API first. Clicking on “Create Cluster” will take you to the cluster configuration section. Give any unique name to your cluster and select a desired zone. You need to create a master and 3 worker nodes. Select the default configuration processors (n1-standard-4 4vCPU 15 GB memory) for master and each member and reduce the storage to 32 GB HDD storage. Change the number of Worker nodes to 3. Leave everything else default and click on “Create”.
 
 Now that the cluster is setup we’ll have to configure it a little before we can run jobs on it. Select the cluster you just created from the list of clusters under the cloud Dataproc section on your console. Go to the VM Instances tab and click on the SSH button next to the instance with the Master Role.
 
