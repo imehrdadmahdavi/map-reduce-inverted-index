@@ -132,11 +132,11 @@ Go to the 'Jobs' section in the left navigation bar of the Dataproc page and cli
     * **Output:** Path to the storage bucket followed by a new folder name e.g. `gs:///dataproc-69070.../fulloutput`. The folder is created during execution. You will get an error if you give the name of an existing folder.
 * Leave the rest at their default settings.
 
-Now submit the job.
+Now submit the job. You can see the log while it is running.
 
 **NOTE**: If you encounter a `Java.lang.Interrupted Exception` you can safely ignore it. Your submission will still execute.
 
-The output files will be stored in the output folder on the bucket. If you open this folder you’ll notice that the inverted index is in several segments.(Delete the _SUCCESS file in the folder before mergin all the output files).
+The output files will be stored in the output folder on the bucket. If you open this folder you’ll notice that the inverted index is in several segments.(Delete the _SUCCESS file in the folder before mergin all the output files). To merge the files and create a final text output run the following commands:
 ```shell
 $ hadoop fs -getmerge gs://dataproc-69070.../fulloutput ./output.txt
 $ hadoop fs -copyFromLocal ./output.txt
