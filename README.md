@@ -102,7 +102,7 @@ Download the dataset from this [link](https://drive.google.com/drive/u/1/folders
 
 Click on 'Dataproc' in the left navigation menu under . Next, locate the address of the default Google cloud storage staging bucket for your cluster.
 
-Go to the storage section in the left navigation bar and select your cluster’s default bucket from the list of buckets. Click on the `Upload Folder` button and upload the `devdata` folder and `fulldata` folder individually.
+Go to the storage section in the left navigation bar and select your cluster’s default bucket from the list of buckets. Click on the `Upload Folder` button and upload the `devdata` and `fulldata` folders individually.
 
 #### Submit Hadoop job and generate output
 Now we are ready to submit a Hadoop job to run our MapReduce implementation on the actual data. Either use SSH or `nano`/`vi` command to copy or create `InvertedIndex.java` on the cluster.
