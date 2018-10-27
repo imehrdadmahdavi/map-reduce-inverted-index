@@ -121,7 +121,7 @@ The `gs://dataproc-69070...` part is the default bucket of your cluster. It need
 
 #### Submitting the Hadoop job to your cluster
 
-Go to the “Jobs” section in the left navigation bar of the Dataproc page and click on “Submit job”. Fill the job parameters as follows:
+Go to the 'Jobs' section in the left navigation bar of the Dataproc page and click on 'Submit job'. Fill the job parameters as follows:
 
 * **Cluster**: Select the cluster you created
 * **Job Type:** Hadoop
