@@ -76,7 +76,7 @@ In Google Cloud Consol, select Dataproc from the navigation list on the left. If
 Now that the cluster is setup we’ll have to configure it a little before we can run jobs on it. Select the cluster you just created from the list of clusters under the cloud Dataproc section on your console. Go to the VM Instances tab and click on the SSH button next to the instance with the Master Role.
 
 Clicking on the SSH button will take you to a Command line Interface(CLI) like an xTerm or Terminal. All the commands in the following steps are to be entered in the
-CLI. There is no home directory on HDFS for the current user so set up the user directory on HDFS. So, we’ll have to set this up before proceeding further. (To find out your user name run `whoami`)
+CLI. There is no home directory on HDFS for the current user do we’ll have to set this up before proceeding further. (To find out your user name run `whoami`)
 ```shell
 $ hadoop fs -mkdir -p /user/<your username here>
 ```
