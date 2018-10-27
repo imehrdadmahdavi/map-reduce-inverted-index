@@ -154,8 +154,8 @@ $ hadoop fs -rm gs://dataproc-69070.../fulloutput/*
 $ hadoop fs -rmdir gs://dataproc-69070.../fulloutput
 ```
 ## References
-* [Hadoop MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) documentation.
-* [Google Dataproc](https://cloud.google.com/dataproc/docs/) documentation
+* [Hadoop MapReduce documentation](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
+* [Google Dataproc documentation](https://cloud.google.com/dataproc/docs/)
 
 ## See Also
 * [Google's Map Reduce Engineer Round Table Discussion](https://youtu.be/NXCIItzkn3E)
