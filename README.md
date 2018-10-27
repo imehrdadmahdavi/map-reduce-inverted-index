@@ -4,7 +4,7 @@ This is a Java program for creating an inverted index of words occurring in a la
 
 As our dataset, we are using a subset of 74 files from a total of 408 files (text extracted from HTML tags) derived from the Stanford WebBase project that is available [here](https://ebiquity.umbc.edu/resource/html/id/351). It was obtained from a web crawl done in February 2007. It is one of the largest collections totaling more than 100 million web pages from more than 50,000 websites. This version has already been cleaned.
 
-In this project we first set up a small sample hadoop cluster using Local (Standalone) Mode and then implement the actual project in Fully-Distributed Mode on Google Dataproc using the actual data set.
+In this project we first set up a small sample Hadoop cluster using Local (Standalone) Mode and then implement the actual project in Fully-Distributed Mode on Google Dataproc using the actual data set.
 
 ## Local (Standalone) Mode
 
@@ -147,7 +147,7 @@ Now you have successfully created an inverted index of the whole data set. You c
 $ grep -w '^peace' output.txt
 ```
 #### Note
-If you want to re-compile and submit a new job again you can remove the `.jar`, `.class` ,`.java` and hadoop files using the command below accordingly.
+If you want to re-compile and submit a new job again you can remove the `.jar`, `.class` ,`.java` and Hadoop files using the command below accordingly.
 ```shell
 $ hadoop fs -rm ./wordcount.jar ./output.txt WordCount*.class
 $ hadoop fs -rm gs://dataproc-69070.../JAR/wordcount.jar; gs://dataproc-69070.../output.txt;
