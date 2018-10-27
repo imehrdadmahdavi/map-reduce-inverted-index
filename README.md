@@ -128,9 +128,9 @@ Go to the 'Jobs' section in the left navigation bar of the Dataproc page and cli
 * **Jar File:** Full path to the jar file you uploaded earlier to the Google storage bucket. E.g. `gs:///dataproc-69070.../JAR/invertedindex.jar`.
 * **Main Class or jar:** The name of the java class you wrote the mapper and reducer in.
 * **Arguments:** This takes two arguments.
-    * **Input:** Path to the input data you uploaded
-    * **Output:** Path to the storage bucket followed by a new folder name. The folder is created during execution. You will get an error if you give the name of an existing folder.
-* Leave the rest at their default settings
+    * **Input:** Path to the input data you uploaded e.g. `gs:///dataproc-69070.../fulldata`.
+    * **Output:** Path to the storage bucket followed by a new folder name e.g. `gs:///dataproc-69070.../fulloutput`. The folder is created during execution. You will get an error if you give the name of an existing folder.
+* Leave the rest at their default settings.
 
 Now submit the job.
 
