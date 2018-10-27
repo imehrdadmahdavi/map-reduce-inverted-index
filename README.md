@@ -45,12 +45,12 @@ hadoop	6722018415:2
 hello	5722018411:1 6722018415:1 
 world	5722018411:2
 ```
-To submit a Hadoop job, the MadReduce implementation should be packaged as a `jar` file. To do so, copy the `InvertedIndex.java` file of this project to the Hadoop's distribution root folder and while you are still there run the following command to compile `InvertedIndex.java` and create a `jar` file.
+To submit a Hadoop job, the MadReduce implementation should be packaged as a `jar` file. To do so, copy the `InvertedIndex.java` file of this project to the Hadoop's distribution root folder and while you are still there run the following commands to compile `InvertedIndex.java` and create a `jar` file.
 ```shell
 $ bin/hadoop com.sun.tools.javac.Main InvertedIndex.java
 $ jar cf invertedindex.jar InvertedIndex*.class
 ```
-Copy `input/file01` and `input/file02` of this project and place them inside the `input` folder of the Hadoop distrubution folder. While you are still there, run the following code to submit the job, get the input files from `input` folder, generate the inverted index and store its output in the `output` folder:
+Copy `input/file01` and `input/file02` of this project and place them inside the `input` folder of the Hadoop distrubution folder. While you are still there, run the following command to submit the job, get the input files from `input` folder, generate the inverted index and store its output in the `output` folder:
 ```shell
 $ bin/hadoop jar invertedindex.jar InvertedIndex input output
 ```
