@@ -14,8 +14,10 @@ In this project we first set up a small sample hadoop cluster using Local (Stand
 We need to setup the project on GNU/Linux as it is the supported development and production platform for Hadoop. To get a Hadoop distribution, download a recent stable release from one of the [Apache Download Mirrors](http://www.apache.org/dyn/closer.cgi/hadoop/common/). Please note that this project has been tested on `hadoop-3.1.1`. Unpack the downloaded Hadoop distribution. In the distribution folder, edit the file `etc/hadoop/hadoop-env.sh` to define some parameters as follows:
 
 ```shell
-# set to the root of your Java installation
-$ export JAVA_HOME=/usr/java/latest
+# add these line to the hadoop-env.sh or set them in terminal
+export JAVA_HOME=/usr/java/latest
+export PATH=${JAVA_HOME}/bin:${PATH}
+export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
  ```
 Then try the following command:
  ```shell
