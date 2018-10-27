@@ -149,7 +149,7 @@ $ grep -w '^peace' output.txt
 If you want to re-compile and submit a new job again you can remove the `.jar`, `.class` ,`.java` and Hadoop files using the command below accordingly.
 ```shell
 $ hadoop fs -rm ./wordcount.jar ./output.txt WordCount*.class
-$ hadoop fs -rm gs://dataproc-69070.../JAR/wordcount.jar; gs://dataproc-69070.../output.txt;
+$ hadoop fs -rm gs://dataproc-69070.../JAR/wordcount.jar; gs://dataproc-69070.../output.txt
 $ hadoop fs -rm gs://dataproc-69070.../fulloutput/* 
 $ hadoop fs -rmdir gs://dataproc-69070.../fulloutput
 ```
