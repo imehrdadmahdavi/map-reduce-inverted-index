@@ -125,7 +125,7 @@ Go to the 'Jobs' section in the left navigation bar of the Dataproc page and cli
 
 * **Cluster**: Select the cluster you created
 * **Job Type:** Hadoop
-* **Jar File:** Full path to the jar file you uploaded earlier to the Google storage bucket. Don’t forget the `gs://`
+* **Jar File:** Full path to the jar file you uploaded earlier to the Google storage bucket. E.g. gs:///dataproc-69070.../JAR/invertedindex.jar
 * **Main Class or jar:** The name of the java class you wrote the mapper and reducer in.
 * **Arguments:** This takes two arguments.
     * **Input:** Path to the input data you uploaded
