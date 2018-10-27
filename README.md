@@ -28,13 +28,12 @@ This should display the usage documentation for the Hadoop script. Now you are r
 ### Setup and run a simple Hadoop job
 
 This simple Hadoop job, get two below text files in the input folder as the input of the Mapper.
-
-file01:
 ```shell
+#file01:
 5722018411	Hello World Bye World
 ```
-file02:
 ```shell
+#file02:
 6722018415	Hello Hadoop Goodbye Hadoop
 ```
 And by submitting a Hadoop job and applying Reduce step, it generates an inverted index as below:
