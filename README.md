@@ -154,4 +154,10 @@ $ hadoop fs -rm gs://dataproc-69070.../JAR/wordcount.jar; gs://dataproc-69070...
 $ hadoop fs -rm gs://dataproc-69070.../fulloutput/* 
 $ hadoop fs -rmdir gs://dataproc-69070.../fulloutput
 ```
+## References
+* [Hadoop MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) documentation.
+* [Google Dataproc](https://cloud.google.com/dataproc/docs/) documentation
+
+## See Also
+* [Google's Map Reduce Engineer Round Table Discussion](https://youtu.be/NXCIItzkn3E)
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
