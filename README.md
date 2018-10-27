@@ -142,7 +142,11 @@ $ hadoop fs -getmerge gs://dataproc-69070.../fulloutput ./output.txt
 $ hadoop fs -copyFromLocal ./output.txt
 $ hadoop fs -cp ./output.txt gs://dataproc-69070.../output.txt
 ```
-#### Notes
+Now you have successfully created an inverted index of the whole data set. You can use `grep` to see index entries for any apecific word:
+```shell
+$ grep -w '^peace' output.txt
+```
+#### Note
 If you want to re-compile and submit a new job again you can remove the `.jar`, `.class` ,`.java` and hadoop files using the command below accordingly.
 ```shell
 $ hadoop fs -rm ./wordcount.jar ./output.txt WordCount*.class
