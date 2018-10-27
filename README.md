@@ -87,7 +87,7 @@ Please note that this step has to be done each time you open a new SSH terminal.
 $ export PATH=${JAVA_HOME}/bin:${PATH}
 $ export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
 ```
-Run
+Now run:
 ```shell
 $ hadoop fs -ls
 ```
