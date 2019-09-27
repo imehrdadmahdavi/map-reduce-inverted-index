@@ -81,7 +81,7 @@ $ hadoop fs -mkdir -p /user/<your username here>
 ```
 Set up environment variables. `JAVA_HOME` has already been setup and we don't need to set it up again.
 
-Please note that this step has to be done each time you open a new SSH terminal. For liminating this step you can also setup this up `JAVA_HOME`, `PATH`, and `HADOOP_CLASSPATH` in the `etc/hadoop/hadoop-env.sh`.
+Please note that this step has to be done each time you open a new SSH terminal. For eliminating this step you can also setup this up `JAVA_HOME`, `PATH`, and `HADOOP_CLASSPATH` in the `etc/hadoop/hadoop-env.sh`.
 ```shell
 $ export PATH=${JAVA_HOME}/bin:${PATH}
 $ export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
