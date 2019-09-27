@@ -1,4 +1,4 @@
-# MapReduce Inverted Index
+# Hadoop MapReduce Inverted Index
 
 This is a Java program for creating an inverted index of words occurring in a large set of documents extracted from web pages using [Hadoop MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) and [Google Dataproc](https://cloud.google.com/dataproc/).
 
