@@ -63,7 +63,7 @@ In this section we create a cluster with 3 worker nodes on Google Dataproc and r
 
 ### Google Cloud Platform Setup
 
-First we need an account on [Google Cloud Platform](https://cloud.google.com/). You can sign up for a trial with a $300 credit if you don't have one already.
+First we need an account on [Google Cloud Platform](https://cloud.google.com/). You can sign up for a trial with a $300 free credits if you don't have one already.
 
 #### Setting up Your Initial Machine
 In the Google Cloud Console either create a new project or select an existing one. For this exercise we will use Dataproc. Using Dataproc, we can quickly create a cluster of compute instances running Hadoop. The alternative to Dataproc would be to individually setup each compute node, install Hadoop on it, set up HDFS, set up master node, etc. Dataproc automates this grueling process for us.
