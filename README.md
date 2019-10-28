@@ -59,7 +59,7 @@ $ bin/hadoop dfs -cat output/part-r-00000
 ```
 ## Fully-Distributed Mode
 
-In this section we create a cluster with 3 worker nodes on Google Dataproc and run `invertedindex.jar` job on the full real data. 
+In this section we create a cluster with 3 worker nodes on Google Dataproc and run `invertedindex.jar` job on the actual data set. 
 
 ### Google Cloud Platform Setup
 
