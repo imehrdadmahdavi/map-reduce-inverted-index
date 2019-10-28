@@ -27,7 +27,7 @@ This should display the usage documentation for the Hadoop script. Now you are r
 
 ### Setup and run a simple Hadoop job
 
-This simple Hadoop job, get two below text files in the input folder as the input of the Mapper.
+This simple Hadoop job, gets two text files from the "input" folder as the arguments of the Mapper.
 ```shell
 #file01
 5722018411	Hello World Bye World
