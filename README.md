@@ -11,7 +11,7 @@ In this project we first set up a sample Hadoop cluster using Local (Standalone)
 
 ### Setup Hadoop
 
-We need to setup the project on GNU/Linux as it is the supported development and production platform for Hadoop. To get a Hadoop distribution, download a recent stable release from one of the [Apache Download Mirrors](http://www.apache.org/dyn/closer.cgi/hadoop/common/). Please note that this project was tested on `hadoop-3.1.1`. Unpack the downloaded Hadoop distribution. In the distribution folder, edit the file `etc/hadoop/hadoop-env.sh` to define some parameters as follows:
+We need to setup the project on GNU/Linux as it is the supported development and production platform for Hadoop. To get a Hadoop distribution, download a recent stable release from one of the [Apache Download Mirrors](http://www.apache.org/dyn/closer.cgi/hadoop/common/). Please note that this project was deployed and tested using `hadoop-3.1.1`. Unpack the downloaded Hadoop distribution. In the distribution folder, edit the file `etc/hadoop/hadoop-env.sh` to define some parameters as follows:
 
 ```shell
 # add these line to the hadoop-env.sh or set them in terminal
