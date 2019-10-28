@@ -100,7 +100,7 @@ To ensure that the environment variables are set, run the command `env`.
 
 Download the dataset from this [link](https://drive.google.com/drive/u/1/folders/1Z4KyalIuddPGVkIm6dUjkpD_FiXyNIcq) and unzip the contents. You will find two folders inside named 'development' and 'full data'. 'development' data can be used for development and testing purposes.
 
-Click on 'Dataproc' in the left navigation menu under . Next, locate the address of the default Google cloud storage staging bucket for your cluster.
+Click on 'Dataproc' in the left navigation menu. Next, locate the address of the default Google cloud storage staging bucket for your cluster.
 
 Go to the storage section in the left navigation bar and select your cluster’s default bucket from the list of buckets. Click on the `Upload Folder` button and upload the `devdata` and `fulldata` folders individually.
 
