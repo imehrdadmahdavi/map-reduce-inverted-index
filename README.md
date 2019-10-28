@@ -134,7 +134,7 @@ Go to the 'Jobs' section in the left navigation bar of the Dataproc page and cli
 
 Now submit the job. You can see the log while it is running.
 
-**NOTE**: If you encounter a `Java.lang.Interrupted Exception` you can safely ignore it. Your submission will still execute.
+**NOTE**: If you encounter a `Java.lang.Interrupted Exception` you can safely ignore it. Your job will still execute.
 
 The output files will be stored in the output folder on the bucket. If you open this folder you’ll notice that the inverted index is in several segments.(Delete the _SUCCESS file in the folder before mergin all the output files). To merge the files and create a final text output run the following commands:
 ```shell
